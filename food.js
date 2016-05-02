@@ -1,12 +1,12 @@
 var Food = (function(food) {
-  //TODO(adam): show info on page
+  var targetElement = document.getElementById("food-table-body");
   var dogFood;
   var catFood;
 
   var dogXhr = new XMLHttpRequest();
   dogXhr.addEventListener("load", function() {
     dogFood = JSON.parse(this.responseText);
-    console.log("dog", dogFood);
+    insertFood(targetElement, dogFood);
   });
   dogXhr.open("GET", "dog-food.json");
   dogXhr.send();
@@ -14,10 +14,15 @@ var Food = (function(food) {
   var catXhr = new XMLHttpRequest();
   catXhr.addEventListener("load", function() {
     catFood = JSON.parse(this.responseText);
-    console.log("cat", catFood);
+    insertFood(targetElement, catFood);
   });
   catXhr.open("GET", "cat-food.json");
   catXhr.send();
 
   return food;
 }(Food || {}));
+
+function insertFood(target, foodData) {
+  console.log("target", target);
+  console.log("data", foodData);
+}
