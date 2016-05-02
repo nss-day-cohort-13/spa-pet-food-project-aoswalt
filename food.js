@@ -23,14 +23,18 @@ var Food = (function(food) {
     var html = "";
 
     brandList.forEach(function(brand) {
-      html += `<tr><td>${brand.name}</td>`;
+      var brandName = brand.name.replace(/\b(\w)/g, function(x) { return x.toUpperCase(); });
+      html += `<tr><td>${brandName}</td>`;
 
       html += `<td>${brand.hasOwnProperty("breeds") ? brand.breeds.join("<br>") : ""}</td>`;
 
       let priceArray = [];
       brand.types.forEach(function(type) {
         type.volumes.forEach(function(vol) {
-          priceArray.push(`<td>${type.type}</td><td>${vol.name}</td><td>$${vol.price}</td>`);
+          var typeString = type.type;
+          typeString = typeString.replace(/_/g, " ");
+          typeString = typeString.replace(/\b(\w)/g, function(x) { return x.toUpperCase(); });
+          priceArray.push(`<td>${typeString}</td><td>${vol.name}</td><td>$${vol.price}</td>`);
         });
       });
       html += `
