@@ -27,6 +27,8 @@ var Food = (function(food) {
     brandList.forEach(function(brand) {
       html += `<tr><td>${brand.name}</td>`;
 
+      html += `<td>${brand.hasOwnProperty("breeds") ? brand.breeds.join(", ") : ""}</td>`;
+
       let priceArray = [];
       brand.types.forEach(function(type) {
         type.volumes.forEach(function(vol) {
