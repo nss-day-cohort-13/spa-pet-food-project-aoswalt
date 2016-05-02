@@ -21,7 +21,7 @@
           ]
         },
         {
-          "type:": "elite",
+          "type": "elite",
           "volumes":  [
             {
               "name": "20oz",
@@ -39,7 +39,7 @@
       "name": "Meow Meal",
       "types": [
         {
-          "name": "kitten",
+          "type": "kitten",
           "volumes": [
             {
               "name": "24oz",
@@ -52,7 +52,7 @@
           ]
         },
         {
-          "name": "adult",
+          "type": "adult",
           "volumes": [
             {
               "name": "28oz",

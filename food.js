@@ -1,3 +1,7 @@
+/* jshint devel:true */
+
+'use strict';
+
 var Food = (function(food) {
   var targetElement = document.getElementById("food-table-body");
   var dogFood;
@@ -23,6 +27,23 @@ var Food = (function(food) {
 }(Food || {}));
 
 function insertFood(target, foodData) {
-  console.log("target", target);
-  console.log("data", foodData);
+  console.log("foodData", foodData);
+  var brandList = foodData[Object.keys(foodData)[0]];
+  var html = "";
+
+  brandList.forEach(function(brand) {
+    html += `<tr><td>${brand.name}</td>`;
+
+    let priceArray = [];
+    brand.types.forEach(function(type) {
+      type.volumes.forEach(function(vol) {
+        priceArray.push(`${type.type}, ${vol.name}, ${vol.price}`);
+      });
+    });
+    html += `<td>${priceArray.join(" : ")}</td>`;
+
+    html += "</tr>";
+  });
+
+  target.innerHTML += html;
 }
