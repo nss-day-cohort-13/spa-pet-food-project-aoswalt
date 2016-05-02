@@ -1,5 +1,3 @@
-/* jshint devel:true */
-
 'use strict';
 
 var Food = (function(food) {
@@ -27,15 +25,20 @@ var Food = (function(food) {
     brandList.forEach(function(brand) {
       html += `<tr><td>${brand.name}</td>`;
 
-      html += `<td>${brand.hasOwnProperty("breeds") ? brand.breeds.join(", ") : ""}</td>`;
+      html += `<td>${brand.hasOwnProperty("breeds") ? brand.breeds.join("<br>") : ""}</td>`;
 
       let priceArray = [];
       brand.types.forEach(function(type) {
         type.volumes.forEach(function(vol) {
-          priceArray.push(`${type.type}, ${vol.name}, ${vol.price}`);
+          priceArray.push(`<td>${type.type}</td><td>${vol.name}</td><td>$${vol.price}</td>`);
         });
       });
-      html += `<td>${priceArray.join(" : ")}</td>`;
+      html += `
+        <td>
+          <table class="price-table">
+            <tr>${priceArray.join("</tr></tr>")}</tr>
+          </table>
+        </td>`;
 
       html += "</tr>";
     });
