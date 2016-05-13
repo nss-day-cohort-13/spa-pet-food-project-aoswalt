@@ -15,8 +15,16 @@ caption {
   font-size: 1.5rem;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 thead {
   border-bottom: 2px solid black;
+}
+
+td p {
+  margin: 0;
 }
 
 .food-table td {

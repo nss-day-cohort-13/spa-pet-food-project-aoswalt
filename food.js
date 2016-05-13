@@ -1,6 +1,7 @@
-'use strict';
-
+/* jshint esversion:6 */
 var Food = (function(food) {
+  "use strict";
+
   var targetElement = document.getElementById("food-table-body");
 
   var dogXhr = new XMLHttpRequest();
@@ -26,7 +27,7 @@ var Food = (function(food) {
       var brandName = brand.name.replace(/\b(\w)/g, function(x) { return x.toUpperCase(); });
       html += `<tr><td>${brandName}</td>`;
 
-      html += `<td>${brand.hasOwnProperty("breeds") ? brand.breeds.join("<br>") : ""}</td>`;
+      html += `<td>${brand.hasOwnProperty("breeds") ? "<p>" + brand.breeds.join("</p><p>") + "</p>" : ""}</td>`;
 
       let priceArray = [];
       brand.types.forEach(function(type) {
