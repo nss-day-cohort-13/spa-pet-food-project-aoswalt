@@ -1,0 +1,44 @@
+* {
+  font-family: sans-serif;
+}
+
+.food-table {
+  border: 1px solid black;
+}
+
+.food-table > tbody > tr:nth-child(2n) {
+  background: lightgrey;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  border-bottom: 2px solid black;
+}
+
+td p {
+  margin: 0;
+}
+
+.food-table td {
+  padding: 0.25rem 0.5rem;
+}
+
+.price-table td {
+  padding: 0;
+}
+
+.price-table td:not(:last-child) {
+  padding-right: 0.75rem;
+}
+
+.price-table tr:not(:last-child) {
+  padding-bottom: 0.125rem;
+}
